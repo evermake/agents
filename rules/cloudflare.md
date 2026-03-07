@@ -1,3 +1,5 @@
+## Workers
+
 **Rule**: Use `jsonc` for wrangler config, not `toml`.
 
 ---

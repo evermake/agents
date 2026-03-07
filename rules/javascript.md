@@ -1,3 +1,5 @@
+## Codestyle
+
 **Rule**: When importing a local module, specify a full file name matching the source.
 
 ```ts
@@ -13,6 +15,43 @@ import css from './App.module'
 ```
 
 ---
+
+**Rule**: Capitalize only first letter in identifier names that contain acronyms.
+
+| **Good**      | **Bad**      |
+|---------------|--------------|
+| `SmtpServer`  | `SMTPServer` |
+| `HttpUrl`     | `HTTPURL`    |
+| `encodeHtml`  | `encodeHTML` |
+| `aiAgent`     | `aIAgent`    |
+
+---
+
+**Rule**: Prefer using a single `args` object parameter when declaring a function or constructor that require multiple parameters.
+
+```js
+// Good
+function greeting({ firstName, lastName }) {
+  return `Hello, ${firstName} ${lastName}!`
+}
+
+// Bad
+function greeting(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`
+}
+```
+
+**More on this**:
+- ["Six reasons to define constructors with only one argument" by Giulio Canti](https://gcanti.github.io/2014/09/25/six-reasons-to-define-constructors-with-only-one-argument.html)
+
+---
+
+**Rule**: Use ESLint for code formatting in favor of `prettier`, `biome`, `deno fmt`, etc. Instead of manually fixing each warning, auto-fix formatting issues using ESLint.
+
+**More on this**:
+- ["Why I don't use Prettier" by Anthony Fu](https://antfu.me/posts/why-not-prettier)
+
+## Dependencies
 
 **Rule**: Use exact version specifiers in `package.json` for all dependencies.
 
@@ -54,40 +93,3 @@ Make sure the following script is present in the root `package.json` of a repo/m
   }
 }
 ```
-
----
-
-**Rule**: Use ESLint for code formatting in favor of `prettier`, `biome`, `deno fmt`, etc. Instead of manually fixing each warning, auto-fix formatting issues using ESLint.
-
-**More on this**:
-- ["Why I don't use Prettier" by Anthony Fu](https://antfu.me/posts/why-not-prettier)
-
----
-
-**Rule**: Capitalize only first letter in identifier names that contain acronyms.
-
-| **Good**      | **Bad**      |
-|---------------|--------------|
-| `SmtpServer`  | `SMTPServer` |
-| `HttpUrl`     | `HTTPURL`    |
-| `encodeHtml`  | `encodeHTML` |
-| `aiAgent`     | `aIAgent`    |
-
----
-
-**Rule**: Prefer using a single `args` object parameter when declaring a function or constructor that require multiple parameters.
-
-```js
-// Good
-function greeting({ firstName, lastName }) {
-  return `Hello, ${firstName} ${lastName}!`
-}
-
-// Bad
-function greeting(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`
-}
-```
-
-**More on this**:
-- ["Six reasons to define constructors with only one argument" by Giulio Canti](https://gcanti.github.io/2014/09/25/six-reasons-to-define-constructors-with-only-one-argument.html)
