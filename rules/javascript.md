@@ -1,0 +1,93 @@
+**Rule**: When importing a local module, specify a full file name matching the source.
+
+```ts
+// Good
+import { clamp } from './utils.js'
+import { User } from './components/User.tsx'
+import css from './App.module.css'
+
+// Bad
+import { clamp } from './utils'
+import { User } from './components/User.js'
+import css from './App.module'
+```
+
+---
+
+**Rule**: Use exact version specifiers in `package.json` for all dependencies.
+
+
+```jsonc
+// Good
+{
+  "dependencies": {
+    "react": "19.1.3"
+  },
+  "devDependencies": {
+    "eslint": "9.1.1"
+  }
+}
+
+// Bad
+{
+  "dependencies": {
+    "react": "^19"
+  },
+  "devDependencies": {
+    "eslint": "^9.1.1"
+  }
+}
+```
+
+**Exception**: If package is a library, using exact versions in `dependencies` or `peerDependencies` might be a problem for consumers, so using other specifiers would probably be a better choice (but not for `devDependencies`!).
+
+---
+
+**Rule**: Use [taze](https://www.npmjs.com/package/taze) for updating dependencies in a repository.
+
+Make sure the following script is present in the root `package.json` of a repo/monorepo so a developer may easily update deps:
+
+```json
+{
+  "scripts": {
+    "deps": "taze --write --recursive --interactive minor",
+  }
+}
+```
+
+---
+
+**Rule**: Use ESLint for code formatting in favor of `prettier`, `biome`, `deno fmt`, etc. Instead of manually fixing each warning, auto-fix formatting issues using ESLint.
+
+**More on this**:
+- ["Why I don't use Prettier" by Anthony Fu](https://antfu.me/posts/why-not-prettier)
+
+---
+
+**Rule**: Capitalize only first letter in identifier names that contain acronyms.
+
+| **Good**      | **Bad**      |
+|---------------|--------------|
+| `SmtpServer`  | `SMTPServer` |
+| `HttpUrl`     | `HTTPURL`    |
+| `encodeHtml`  | `encodeHTML` |
+| `aiAgent`     | `aIAgent`    |
+
+---
+
+**Rule**: Prefer using a single `args` object parameter when declaring a function or constructor that require multiple parameters.
+
+```js
+// Good
+function greeting({ firstName, lastName }) {
+  return `Hello, ${firstName} ${lastName}!`
+}
+
+// Bad
+function greeting(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`
+}
+```
+
+**More on this**:
+- ["Six reasons to define constructors with only one argument" by Giulio Canti](https://gcanti.github.io/2014/09/25/six-reasons-to-define-constructors-with-only-one-argument.html)
