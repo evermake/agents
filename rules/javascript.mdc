@@ -64,7 +64,7 @@ Make sure the following script is present in the root `package.json` of a repo/m
 ```json
 {
   "scripts": {
-    "deps": "taze --write --recursive --interactive minor",
+    "deps": "taze --write --recursive --interactive --include-locked minor",
   }
 }
 ```
