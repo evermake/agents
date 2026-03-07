@@ -1,11 +1,5 @@
-## Workers
-
-**Rule**: Use `jsonc` for wrangler config, not `toml`.
-
 ---
-
-**Rule**: Always include `nodejs_compat` in the `compatibility_flags` setting.
-
+alwaysApply: true
 ---
 
 **Rule**: Make sure everything that depends on a worker's environment gets re-created per request, since worker's configuration may change dynamically.

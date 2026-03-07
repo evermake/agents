@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 **Rule**: Keep statements nesting to minimum; return or throw early.
 
 ```js

@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 **Rule**: Use default `React` export for accessing React APIs and types.
 
 ```ts

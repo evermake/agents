@@ -1,30 +1,5 @@
-## Codestyle
-
-**Rule**: When importing a local module, specify a full file name matching the source.
-
-```ts
-// Good
-import { clamp } from './utils.js'
-import { User } from './components/User.tsx'
-import css from './App.module.css'
-
-// Bad
-import { clamp } from './utils'
-import { User } from './components/User.js'
-import css from './App.module'
-```
-
 ---
-
-**Rule**: Capitalize only first letter in identifier names that contain acronyms.
-
-| **Good**      | **Bad**      |
-|---------------|--------------|
-| `SmtpServer`  | `SMTPServer` |
-| `HttpUrl`     | `HTTPURL`    |
-| `encodeHtml`  | `encodeHTML` |
-| `aiAgent`     | `aIAgent`    |
-
+alwaysApply: true
 ---
 
 **Rule**: Prefer using a single `args` object parameter when declaring a function or constructor that require multiple parameters.

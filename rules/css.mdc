@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 ## CSS Modules
 
 **Rule**: Name a default import with `css` when importing a CSS module.
