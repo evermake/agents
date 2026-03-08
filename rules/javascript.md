@@ -28,8 +28,7 @@ function greeting(firstName, lastName) {
 
 ## Dependencies
 
-**Rule**: Use exact version specifiers in `package.json` for all dependencies.
-
+**Rule**: Use exact version specifiers in `package.json` for all dependencies. Add `save-exact=true` line to the project's `.npmrc` to make sure package managers write exact versions when installing packages.
 
 ```jsonc
 // Good
