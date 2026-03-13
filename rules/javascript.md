@@ -2,6 +2,8 @@
 alwaysApply: true
 ---
 
+## Code Style
+
 **Rule**: Prefer using a single `args` object parameter when declaring a function or constructor that require multiple parameters.
 
 ```js
@@ -25,6 +27,22 @@ function greeting(firstName, lastName) {
 
 **More on this**:
 - ["Why I don't use Prettier" by Anthony Fu](https://antfu.me/posts/why-not-prettier)
+
+### Imports
+
+**Rule**: Specify full filenames, with extensions of the source module, when importing local modules.
+
+```js
+// Good
+import { clamp } from './utils/num.ts'
+import { Button } from './components/Button.tsx'
+import css from './Button.module.css'
+
+// Bad
+import { clamp } from './utils/num' // no file extension
+import { Button } from './components/Button.js' // doesn't match source extension
+import css from './Button.module' // not full file extension
+```
 
 ## Dependencies
 
@@ -58,12 +76,12 @@ function greeting(firstName, lastName) {
 
 **Rule**: Use [taze](https://www.npmjs.com/package/taze) for updating dependencies in a repository.
 
-Make sure the following script is present in the root `package.json` of a repo/monorepo so a developer may easily update deps:
+Make sure `taze` installed as a dev-dependency and the following script is present in the root `package.json` of a repo/monorepo so a developer may easily update deps:
 
 ```json
 {
   "scripts": {
     "deps": "taze --write --recursive --interactive --include-locked minor",
-  }
+  },
 }
 ```
